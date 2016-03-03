@@ -1,4 +1,3 @@
-//the script work !
 <?php
 $dir = dirname($_SERVER['DOCUMENT_ROOT'])."/public_html/ziks";
 $filename = $_GET['id'];
