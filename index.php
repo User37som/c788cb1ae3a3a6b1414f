@@ -2,7 +2,7 @@
 $dir = dirname($_SERVER['DOCUMENT_ROOT'])."/public_html/ziks";
 $filename = $_GET['id'];
 $file = $dir."/".$filename;
-//$file_size  = filesize($file); pour usage futur ?
+$file_size  = filesize($file);
 
 if(file_exists($file)){
 	header("Pragma: public");
@@ -12,7 +12,8 @@ if(file_exists($file)){
     header('X-Pad: avoid browser bug');
 	header("Cache-Control: public, must-revalidate, post-check=0, pre-check=0");
 	header('Content-Disposition: inline;');
-//	header('Content-Transfer-Encoding: binary'); On va essayer chunked pour voir
+//	header('Content-Transfer-Encoding: binary');
+	header("Content-Length: $file_size");
 	header('Content-Transfer-Encoding: chunked');
 	ob_start(null, 1024, false);
 	set_time_limit(0);
