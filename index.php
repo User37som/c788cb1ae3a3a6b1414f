@@ -20,7 +20,7 @@ if(file_exists($file)){
 	$file_play = @fopen($file,"rb");
 	while(!feof($file_play))
 	{
-	print(@fread($file_play, 1024 * 1));
+	print(@fread($file_play, 1024 * 8));
 	ob_flush();
 	flush();
 	}
